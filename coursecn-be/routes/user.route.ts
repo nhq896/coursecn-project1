@@ -20,4 +20,7 @@ const userRouter = express.Router();
 // Route đăng ký tài khoản mới
 userRouter.post("/registration", registrationUser);
 
+// Route kích hoạt tài khoản
+userRouter.post("/activate-user", activateUser);
+
 export default userRouter;
