@@ -23,4 +23,11 @@ userRouter.post("/registration", registrationUser);
 // Route kích hoạt tài khoản
 userRouter.post("/activate-user", activateUser);
 
+// Route đăng nhập
+userRouter.post("/login", loginUser);
+
+// Route đăng xuất (yêu cầu đăng nhập)
+userRouter.get("/logout", isAutheticated, logoutUser);
+
+
 export default userRouter;
