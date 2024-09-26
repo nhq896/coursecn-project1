@@ -11,7 +11,7 @@ export const isAutheticated = CatchAsyncError(
     const access_token = req.cookies.access_token as string;
 
     if (!access_token) {
-      return next(new ErrorHandler("Vui lòng đăng nhập để tiếp tục!!", 400));
+      return next(new ErrorHandler("Vui lòng đăng nhập để tiếp tục!", 400));
     }
 
     const decoded = jwt.decode(access_token) as JwtPayload;
