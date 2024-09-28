@@ -9,6 +9,7 @@ import { redis } from "../utils/redis";
 import path from "path/posix";
 import sendMail from "../utils/sendMail";
 import { createCourse, getAllCoursesService } from "../services/course.service";
+import notificationModel from "../models/notification.model";
 
 // upload khóa học
 export const uploadCourse = catchAsyncErrors(
@@ -213,11 +214,11 @@ export const addQuestion = catchAsyncErrors(
       // thêm câu hỏi vào list comment trong khóa học
       courseContent.questions.push(newQuestion);
 
-      //   await NotificationModel.create({
-      //     user: req.user?._id,
-      //     title: "New Question",
-      //     message: `You have a new question in ${course?.name}`,
-      //   });
+      await notificationModel.create({
+        user: req.user?._id,
+        title: "Bình luận mới",
+        message: `Có một bình luận mới tại ${course?.name}`,
+      });
 
       // lưu thông tin
       await course?.save();
@@ -280,12 +281,12 @@ export const addAnswer = catchAsyncErrors(
       await course?.save();
 
       if (req.user?._id === question.user._id) {
-        // create a notification
-        // await NotificationModel.create({
-        //   user: req.user?._id,
-        //   title: "Phản hồi bình luận mới",
-        //   message: `Bạn có một phản hồi bình luận mới tại ${course?.name}`,
-        // });
+        // tạo thông báo
+        await notificationModel.create({
+          user: req.user?._id,
+          title: "Phản hồi bình luận mới",
+          message: `Bạn có một phản hồi bình luận mới tại ${course?.name}`,
+        });
       } else {
         const data = {
           name: question.user.name,
