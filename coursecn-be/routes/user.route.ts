@@ -29,5 +29,14 @@ userRouter.post("/login", loginUser);
 // Route đăng xuất (yêu cầu đăng nhập)
 userRouter.get("/logout", isAutheticated, logoutUser);
 
+// Route lấy thông tin người dùng hiện tại (yêu cầu đăng nhập)
+userRouter.get("/me", isAutheticated, getUserInfo);
+
+// Route đăng nhập bằng social
+userRouter.post("/social-auth", socialAuth);
+
+// Route cập nhật thông tin người dùng (yêu cầu đăng nhập)
+userRouter.put("/update-user-info", isAutheticated, updateUserInfo);
+
 
 export default userRouter;
