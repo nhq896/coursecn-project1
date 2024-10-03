@@ -38,5 +38,11 @@ userRouter.post("/social-auth", socialAuth);
 // Route cập nhật thông tin người dùng (yêu cầu đăng nhập)
 userRouter.put("/update-user-info", isAutheticated, updateUserInfo);
 
+// Route cập nhật mật khẩu (yêu cầu đăng nhập)
+userRouter.put("/update-user-password", isAutheticated, updatePassword);
+
+// Route cập nhật avatar (yêu cầu đăng nhập)
+userRouter.put("/update-user-avatar", isAutheticated, updateProfilePicture);
+
 
 export default userRouter;
