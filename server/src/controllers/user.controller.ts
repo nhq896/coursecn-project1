@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { catchAsyncErrors } from "../middleware/catchAsyncErrors";
-import userModel, { IUser } from "../models/user.models";
+import userModel, { IUser } from "../models/user.model";
 import ErrorHandler from "../utils/ErrorHandler";
 import ejs from "ejs";
 import path from "path";
