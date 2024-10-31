@@ -44,5 +44,13 @@ userRouter.put("/update-user-password", isAutheticated, updatePassword);
 // Route cập nhật avatar (yêu cầu đăng nhập)
 userRouter.put("/update-user-avatar", isAutheticated, updateProfilePicture);
 
+// Route lấy danh sách người dùng (chỉ dành cho admin)
+userRouter.get("/get-users", isAutheticated, authorizeRoles("admin"), getAllUsers);
+
+// Route cập nhật role người dùng (chỉ dành cho admin)
+userRouter.put("/update-user", isAutheticated, authorizeRoles("admin"), updateUserRole);
+
+// Route xóa người dùng (chỉ dành cho admin)
+userRouter.delete("/delete-user/:id", isAutheticated, authorizeRoles("admin"), deleteUser);
 
 export default userRouter;
