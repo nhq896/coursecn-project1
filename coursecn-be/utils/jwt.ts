@@ -15,13 +15,13 @@ const accessTokenExpire = parseInt(process.env.ACCESS_TOKEN_EXPIRE || "1", 10);
 const refreshTokenExpire = parseInt(process.env.REFRESH_TOKEN_EXPIRE || "3", 10);
 
 // Cấu hình cho access token
-// export const accessTokenOptions: ITokenOptions = {
-//   expires: new Date(Date.now() + accessTokenExpire * 24 * 60 * 60 * 1000),
-//   maxAge: accessTokenExpire * 24 * 60 * 60 * 1000,
-//   httpOnly: true,
-//   sameSite: "none",
-//   secure: true,
-// };
+export const accessTokenOptions: ITokenOptions = {
+  expires: new Date(Date.now() + accessTokenExpire * 24 * 60 * 60 * 1000),
+  maxAge: accessTokenExpire * 24 * 60 * 60 * 1000,
+  httpOnly: true,
+  sameSite: "none",
+  secure: true,
+};
 
 // Cấu hình cho refresh token
 export const refreshTokenOptions: ITokenOptions = {
