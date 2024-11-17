@@ -12,11 +12,11 @@ export const createCourse = CatchAsyncError(async (data: any, res: Response) => 
 });
 
 // Lấy danh sách tất cả khóa học và sort theo thời gian tạo
-// export const getAllCoursesService = async (res: Response) => {
-//   const courses = await CourseModel.find().sort({ createdAt: -1 });
+export const getAllCoursesService = async (res: Response) => {
+  const courses = await CourseModel.find().sort({ createdAt: -1 });
 
-//   res.status(201).json({
-//     success: true,
-//     courses,
-//   });
-// };
+  res.status(201).json({
+    success: true,
+    courses,
+  });
+};
