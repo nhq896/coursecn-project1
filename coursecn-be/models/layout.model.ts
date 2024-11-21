@@ -14,16 +14,16 @@ export interface BannerImage extends Document {
   url: string;
 }
 
-interface Layout extends Document {
-  type: string;
-  faq: FaqItem[];
-  categories: Category[];
-  banner: {
-    image: BannerImage;
-    title: string;
-    subTitle: string;
-  };
-}
+// interface Layout extends Document {
+//   type: string;
+//   faq: FaqItem[];
+//   categories: Category[];
+//   banner: {
+//     image: BannerImage;
+//     title: string;
+//     subTitle: string;
+//   };
+// }
 
 const faqSchema = new Schema<FaqItem>({
   question: { type: String },
