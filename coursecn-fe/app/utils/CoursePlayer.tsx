@@ -14,7 +14,7 @@ const CoursePlayer: React.FC<CoursePlayerProps> = ({ videoUrl }) => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:8000/api/v1/getVdoCipherOTP", {
+      .post(`${process.env.NEXT_PUBLIC_SERVER_URI}/getVdoCipherOTP`, {
         videoId: videoUrl,
       })
       .then((res) => {
